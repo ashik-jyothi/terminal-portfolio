@@ -1,0 +1,81 @@
+{
+  "name": "terminal-portfolio",
+  "private": false,
+  "version": "1.0.0",
+  "description": "Interactive terminal portfolio application",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "terminal-portfolio": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "portfolio",
+    "terminal",
+    "cli",
+    "react-ink",
+    "interactive",
+    "typescript",
+    "nodejs",
+    "resume",
+    "developer-portfolio",
+    "command-line",
+    "terminal-ui"
+  ],
+  "author": "Ashik Jyothi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ashik-jyothi/terminal-portfolio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ashik-jyothi/terminal-portfolio/issues"
+  },
+  "homepage": "https://dev.ashikjyothi.in",
+  "scripts": {
+    "dev": "tsx src/index.tsx",
+    "build": "npm run clean && npm run typecheck && vite build --mode production && npm run post-build",
+    "build:dev": "npm run clean && vite build --mode development",
+    "clean": "rm -rf dist",
+    "post-build": "chmod +x dist/index.js",
+    "preview": "vite preview",
+    "start": "node dist/index.js",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "typecheck:build": "tsc --project tsconfig.build.json --noEmit",
+    "test:build": "npm run build && npm run validate:build",
+    "test:cli": "node dist/index.js --help && node dist/index.js --version",
+    "validate:build": "node scripts/validate-build.js",
+    "prepublishOnly": "npm run build",
+    "install:global": "npm run build && npm install -g .",
+    "uninstall:global": "npm uninstall -g terminal-portfolio"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.3.0",
+    "@types/chalk": "^0.4.31",
+    "@types/node": "^24.2.0",
+    "ink-testing-library": "^4.0.0",
+    "jsdom": "^26.1.0",
+    "tsx": "^4.20.3",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.4",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "boxen": "^8.0.1",
+    "chalk": "^5.5.0",
+    "ink": "^6.1.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  }
+}
