@@ -8,9 +8,9 @@ const SkillsSection: React.FC = React.memo(() => {
 
   return (
     <Section title="Technical Skills">
-      <Box flexDirection="column" gap={1}>
+      <Box flexDirection="column" gap={1} alignItems="center">
         {skills.map((skillCategory, index) => (
-          <Box key={skillCategory.category} flexDirection="column" marginBottom={2}>
+          <Box key={skillCategory.category} flexDirection="column" marginBottom={2} alignItems="center">
             {/* Category Header */}
             <Box marginBottom={1}>
               <Text color="green" bold>
@@ -19,8 +19,8 @@ const SkillsSection: React.FC = React.memo(() => {
             </Box>
             
             {/* Skills List */}
-            <Box flexDirection="column" paddingLeft={2}>
-              <Box flexWrap="wrap" flexDirection="row">
+            <Box flexDirection="column" alignItems="center">
+              <Box flexWrap="wrap" flexDirection="row" justifyContent="center">
                 {skillCategory.skills.map((skill) => (
                   <Box key={skill} marginRight={2} marginBottom={1}>
                     <Text color="blue">
@@ -33,7 +33,7 @@ const SkillsSection: React.FC = React.memo(() => {
             
             {/* Visual separation between categories */}
             {index < skills.length - 1 && (
-              <Box marginTop={1}>
+              <Box marginTop={1} justifyContent="center">
                 <Text color="gray" dimColor>
                   {'─'.repeat(30)}
                 </Text>
@@ -43,7 +43,7 @@ const SkillsSection: React.FC = React.memo(() => {
         ))}
         
         {/* Footer message */}
-        <Box marginTop={2}>
+        <Box marginTop={2} justifyContent="center">
           <Text color="cyan" dimColor>
             💡 Always learning and exploring new technologies!
           </Text>

@@ -89,39 +89,45 @@ const HomeSection: React.FC = React.memo(() => {
   const fallbackChars = getFallbackChars(capabilities);
   
   return (
-    <Box flexDirection="column" padding={2}>
-      <Box marginBottom={2}>
+    <Box flexDirection="column" alignItems="center" padding={2} width="100%">
+      <Box marginBottom={3} justifyContent="center">
         <Text color={capabilities.supportsColor ? "green" : undefined} bold>
           {fallbackChars.success} Welcome to the Terminal Portfolio!
         </Text>
       </Box>
       
-      <Box flexDirection="column" marginBottom={2}>
-        <Text>
-          Navigate through different sections to explore:
-        </Text>
-        <Box marginTop={1} paddingLeft={2}>
-          <Text>{fallbackChars.bullet} About - Personal introduction and background</Text>
-          <Text>{fallbackChars.bullet} Experience - Professional work history and achievements</Text>
-          <Text>{fallbackChars.bullet} Skills - Technical expertise and capabilities</Text>
-          <Text>{fallbackChars.bullet} Projects - Portfolio of work and achievements</Text>
-          <Text>{fallbackChars.bullet} Contact - Ways to connect and collaborate</Text>
+      <Box flexDirection="column" marginBottom={3} alignItems="center" width="100%">
+        <Box marginBottom={2} justifyContent="center">
+          <Text bold>
+            Navigate through different sections to explore:
+          </Text>
+        </Box>
+        <Box flexDirection="column" alignItems="center" width="100%">
+          <Text>{fallbackChars.bullet} <Text bold color={capabilities.supportsColor ? "cyan" : undefined}>About</Text> - Personal introduction and background</Text>
+          <Text>{fallbackChars.bullet} <Text bold color={capabilities.supportsColor ? "cyan" : undefined}>Experience</Text> - Professional work history and achievements</Text>
+          <Text>{fallbackChars.bullet} <Text bold color={capabilities.supportsColor ? "cyan" : undefined}>Skills</Text> - Technical expertise and capabilities</Text>
+          <Text>{fallbackChars.bullet} <Text bold color={capabilities.supportsColor ? "cyan" : undefined}>Projects</Text> - Portfolio of work and achievements</Text>
+          <Text>{fallbackChars.bullet} <Text bold color={capabilities.supportsColor ? "cyan" : undefined}>Contact</Text> - Ways to connect and collaborate</Text>
         </Box>
       </Box>
       
-      <Box marginBottom={2}>
-        <Text color={capabilities.supportsColor ? "yellow" : undefined}>
-          Navigation Tips:
-        </Text>
-        <Box marginTop={1} paddingLeft={2}>
-          <Text dimColor>{fallbackChars.bullet} Use arrow keys or vim keys (hjkl) to navigate</Text>
-          <Text dimColor>{fallbackChars.bullet} Press numbers 1-6 for quick section access</Text>
-          <Text dimColor>{fallbackChars.bullet} Press 'g' to return home, 'G' for contact</Text>
-          <Text dimColor>{fallbackChars.bullet} Press 'q', ESC, or Ctrl+C to exit</Text>
+      <Box marginBottom={3} alignItems="center" width="100%">
+        <Box flexDirection="column" alignItems="center" width="100%">
+          <Box marginBottom={2} justifyContent="center">
+            <Text color={capabilities.supportsColor ? "yellow" : undefined} bold>
+              Navigation Tips:
+            </Text>
+          </Box>
+          <Box flexDirection="column" alignItems="center" width="100%">
+            <Text dimColor>{fallbackChars.bullet} Use arrow keys or vim keys (hjkl) to navigate</Text>
+            <Text dimColor>{fallbackChars.bullet} Press numbers 1-6 for quick section access</Text>
+            <Text dimColor>{fallbackChars.bullet} Press 'g' to return home, 'G' for contact</Text>
+            <Text dimColor>{fallbackChars.bullet} Press 'q', ESC, or Ctrl+C to exit</Text>
+          </Box>
         </Box>
       </Box>
       
-      <Box>
+      <Box justifyContent="center">
         <Text color={capabilities.supportsColor ? "cyan" : undefined} dimColor>
           {fallbackChars.sparkle} Optimized for performance and smooth navigation {fallbackChars.sparkle}
         </Text>

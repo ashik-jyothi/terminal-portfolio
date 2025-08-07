@@ -1,12 +1,11 @@
 import React from 'react';
 import { Box, Text } from 'ink';
 import type { NavigationProps, SectionType } from '../types/app';
-import { detectTerminalCapabilities, getFallbackChars } from '../utils/terminalCapabilities';
+import { detectTerminalCapabilities } from '../utils/terminalCapabilities';
 
 const Navigation: React.FC<NavigationProps> = React.memo(({ currentSection, onSectionChange: _ }) => {
   // onSectionChange is handled by the keyboard navigation hook
   const capabilities = detectTerminalCapabilities();
-  const fallbackChars = getFallbackChars(capabilities);
   
   // Define navigation menu items
   const menuItems: Array<{ key: string; section: SectionType; label: string }> = [
@@ -20,7 +19,7 @@ const Navigation: React.FC<NavigationProps> = React.memo(({ currentSection, onSe
 
   return (
     <Box flexDirection="column" alignItems="center">
-      {/* Navigation instructions */}
+      {/* Navigation instructions - split into multiple lines for better readability */}
       <Box justifyContent="center" marginBottom={1}>
         <Text dimColor>
           Navigation: Arrow keys, vim (hjkl), numbers (1-6) | 'g' (home), 'G' (contact) | 'q'/ESC/Ctrl+C to exit
@@ -37,31 +36,24 @@ const Navigation: React.FC<NavigationProps> = React.memo(({ currentSection, onSe
       </Box>
 
       {/* Main menu with section options */}
-      <Box justifyContent="center" marginBottom={2}>
-        {menuItems.map((item, index) => {
-          const isActive = item.section === currentSection;
-          const separator = index < menuItems.length - 1 ? ' | ' : '';
-          
-          return (
-            <Text key={item.section}>
-              <Text 
-                color={capabilities.supportsColor ? (isActive ? 'green' : 'white') : undefined} 
-                bold={isActive}
-              >
-                [{item.key}] {item.label}
+      <Box justifyContent="center" marginBottom={1}>
+        <Text>
+          {menuItems.map((item, index) => {
+            const isActive = item.section === currentSection;
+            const separator = index < menuItems.length - 1 ? ' | ' : '';
+            
+            return (
+              <Text key={item.section}>
+                <Text 
+                  color={capabilities.supportsColor ? (isActive ? 'green' : 'white') : undefined} 
+                  bold={isActive}
+                >
+                  [{item.key}] {item.label}
+                </Text>
+                <Text dimColor>{separator}</Text>
               </Text>
-              <Text dimColor>{separator}</Text>
-            </Text>
-          );
-        })}
-      </Box>
-
-      {/* Visual indicator for current section */}
-      <Box justifyContent="center">
-        <Text color={capabilities.supportsColor ? "cyan" : undefined}>
-          {`${fallbackChars.bullet} `.repeat(menuItems.findIndex(item => item.section === currentSection) + 1)}
-          <Text bold>You are here</Text>
-          {` ${fallbackChars.arrow}`.repeat(menuItems.length - menuItems.findIndex(item => item.section === currentSection))}
+            );
+          })}
         </Text>
       </Box>
     </Box>

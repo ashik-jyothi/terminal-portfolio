@@ -11,9 +11,9 @@ const Container: React.FC<ContainerProps> = React.memo(({ children, padding = 2 
   const terminalWidth = stdout.columns || 80;
   const terminalHeight = stdout.rows || 24;
   
-  // Calculate responsive dimensions
-  const containerWidth = Math.max(capabilities.minWidth, Math.min(terminalWidth - 4, 120));
-  const maxHeight = Math.max(capabilities.minHeight - 8, terminalHeight - 8);
+  // Calculate responsive dimensions - use more of the available space
+  const containerWidth = Math.max(capabilities.minWidth, Math.min(terminalWidth - 8, Math.max(120, terminalWidth * 0.8)));
+  const maxHeight = Math.max(capabilities.minHeight - 8, terminalHeight - 12);
   
   // Determine border style based on capabilities
   const borderStyle = capabilities.supportsBorders ? "round" : "single";
@@ -29,9 +29,11 @@ const Container: React.FC<ContainerProps> = React.memo(({ children, padding = 2 
       borderStyle={borderStyle}
       borderColor={borderColor}
       justifyContent="flex-start"
-      alignItems="stretch"
+      alignItems="center"
     >
-      {children}
+      <Box flexDirection="column" width="100%" alignItems="center">
+        {children}
+      </Box>
     </Box>
   );
 });

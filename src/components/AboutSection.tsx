@@ -8,9 +8,9 @@ const AboutSection: React.FC = React.memo(() => {
 
   return (
     <Section title="About Me">
-      <Box flexDirection="column" gap={1}>
+      <Box flexDirection="column" gap={1} alignItems="center">
         {/* Name and Title */}
-        <Box flexDirection="column" marginBottom={2}>
+        <Box flexDirection="column" marginBottom={2} alignItems="center">
           <Box>
             <Text color="green" bold>
               👋 Hello, I'm {personal.name}

@@ -202,8 +202,6 @@ const App: React.FC = () => {
           <Text dimColor>
             Terminal: {appState.terminalDimensions.width}x{appState.terminalDimensions.height}
             {isResizing && ' (resizing...)'}
-            {!capabilities.supportsColor && ' (no color)'}
-            {!capabilities.supportsUnicode && ' (no unicode)'}
             {sessionInfo && ` | Session: ${sessionInfo.sectionsVisited.length} sections visited`}
             {!isActive && ' (session ended)'}
           </Text>

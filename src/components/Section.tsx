@@ -8,7 +8,7 @@ const Section: React.FC<SectionProps> = React.memo(({ title, children }) => {
   const fallbackChars = getFallbackChars(capabilities);
   
   return (
-    <Box flexDirection="column" paddingY={1}>
+    <Box flexDirection="column" paddingY={1} alignItems="center">
       {/* Section Title */}
       <Box marginBottom={1}>
         <Text bold color={capabilities.supportsColor ? "yellow" : undefined}>
@@ -24,7 +24,7 @@ const Section: React.FC<SectionProps> = React.memo(({ title, children }) => {
       </Box>
       
       {/* Section Content */}
-      <Box flexDirection="column" paddingLeft={2}>
+      <Box flexDirection="column" width="100%">
         {children}
       </Box>
       

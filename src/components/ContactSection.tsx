@@ -8,15 +8,15 @@ const ContactSection: React.FC = React.memo(() => {
 
   return (
     <Section title="Contact Information">
-      <Box flexDirection="column" gap={1}>
+      <Box flexDirection="column" gap={1} alignItems="center">
         {/* Email */}
-        <Box flexDirection="column" marginBottom={2}>
+        <Box flexDirection="column" marginBottom={2} alignItems="center">
           <Box marginBottom={1}>
             <Text color="green" bold>
               📧 Email
             </Text>
           </Box>
-          <Box paddingLeft={2}>
+          <Box>
             <Text color="cyan">
               {contact.email}
             </Text>
@@ -25,13 +25,13 @@ const ContactSection: React.FC = React.memo(() => {
 
         {/* Website */}
         {contact.website && (
-          <Box flexDirection="column" marginBottom={2}>
+          <Box flexDirection="column" marginBottom={2} alignItems="center">
             <Box marginBottom={1}>
               <Text color="green" bold>
                 🌐 Website
               </Text>
             </Box>
-            <Box paddingLeft={2}>
+            <Box>
               <Text color="cyan">
                 {contact.website}
               </Text>
@@ -40,28 +40,24 @@ const ContactSection: React.FC = React.memo(() => {
         )}
 
         {/* Social Media */}
-        <Box flexDirection="column" marginBottom={2}>
+        <Box flexDirection="column" marginBottom={2} alignItems="center">
           <Box marginBottom={1}>
             <Text color="green" bold>
               🔗 Social Media
             </Text>
           </Box>
-          <Box flexDirection="column" paddingLeft={2}>
+          <Box flexDirection="column" alignItems="center">
             {contact.social.map((social) => (
-              <Box key={social.platform} marginBottom={1}>
+              <Box key={social.platform} marginBottom={1} flexDirection="column" alignItems="center">
                 <Box flexDirection="row" alignItems="center">
-                  <Box marginRight={2}>
-                    <Text color="yellow" bold>
-                      {social.platform}:
-                    </Text>
-                  </Box>
-                  <Box>
-                    <Text color="cyan">
-                      @{social.username}
-                    </Text>
-                  </Box>
+                  <Text color="yellow" bold>
+                    {social.platform}: 
+                  </Text>
+                  <Text color="cyan">
+                    @{social.username}
+                  </Text>
                 </Box>
-                <Box paddingLeft={4} marginTop={1}>
+                <Box marginTop={1}>
                   <Text color="gray" dimColor>
                     {social.url}
                   </Text>
@@ -72,19 +68,19 @@ const ContactSection: React.FC = React.memo(() => {
         </Box>
 
         {/* Contact Instructions */}
-        <Box marginTop={2}>
+        <Box marginTop={2} justifyContent="center">
           <Text color="gray" dimColor>
             {'─'.repeat(40)}
           </Text>
         </Box>
         
-        <Box flexDirection="column" marginTop={2}>
+        <Box flexDirection="column" marginTop={2} alignItems="center">
           <Box marginBottom={1}>
             <Text color="yellow" bold>
               💬 Let's Connect!
             </Text>
           </Box>
-          <Box flexDirection="column" paddingLeft={2}>
+          <Box flexDirection="column" alignItems="center">
             <Text wrap="wrap">
               Feel free to reach out via email or connect with me on social media.
             </Text>

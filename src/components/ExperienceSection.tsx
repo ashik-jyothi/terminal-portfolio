@@ -8,11 +8,11 @@ const ExperienceSection: React.FC = React.memo(() => {
 
   return (
     <Section title="Work Experience">
-      <Box flexDirection="column" gap={1}>
+      <Box flexDirection="column" gap={1} alignItems="center">
         {experience.map((job, index) => (
-          <Box key={`${job.company}-${job.position}`} flexDirection="column" marginBottom={3}>
+          <Box key={`${job.company}-${job.position}`} flexDirection="column" marginBottom={3} alignItems="center" width="100%">
             {/* Job Header */}
-            <Box flexDirection="column" marginBottom={1}>
+            <Box flexDirection="column" marginBottom={1} alignItems="center">
               <Box>
                 <Text color="green" bold>
                   💼 {job.position}
@@ -31,7 +31,7 @@ const ExperienceSection: React.FC = React.memo(() => {
             </Box>
 
             {/* Job Description */}
-            <Box flexDirection="column" marginBottom={1} paddingLeft={2}>
+            <Box flexDirection="column" marginBottom={1} alignItems="center">
               <Box marginBottom={1}>
                 <Text color="yellow" bold>
                   Overview:
@@ -45,13 +45,13 @@ const ExperienceSection: React.FC = React.memo(() => {
             </Box>
 
             {/* Key Achievements */}
-            <Box flexDirection="column" marginBottom={1} paddingLeft={2}>
+            <Box flexDirection="column" marginBottom={1} alignItems="center">
               <Box marginBottom={1}>
                 <Text color="yellow" bold>
                   Key Achievements:
                 </Text>
               </Box>
-              <Box flexDirection="column">
+              <Box flexDirection="column" alignItems="center">
                 {job.achievements.map((achievement) => (
                   <Box key={achievement} marginBottom={1}>
                     <Text color="gray">
@@ -64,13 +64,13 @@ const ExperienceSection: React.FC = React.memo(() => {
 
             {/* Technologies Used */}
             {job.technologies && job.technologies.length > 0 && (
-              <Box flexDirection="column" paddingLeft={2}>
+              <Box flexDirection="column" alignItems="center">
                 <Box marginBottom={1}>
                   <Text color="yellow" bold>
                     Technologies:
                   </Text>
                 </Box>
-                <Box flexWrap="wrap" flexDirection="row">
+                <Box flexWrap="wrap" flexDirection="row" justifyContent="center">
                   {job.technologies.map((tech) => (
                     <Box key={tech} marginRight={2} marginBottom={1}>
                       <Text color="blue">
@@ -84,7 +84,7 @@ const ExperienceSection: React.FC = React.memo(() => {
 
             {/* Visual separation between jobs */}
             {index < experience.length - 1 && (
-              <Box marginTop={2}>
+              <Box marginTop={2} justifyContent="center">
                 <Text color="gray" dimColor>
                   {'═'.repeat(50)}
                 </Text>
@@ -94,7 +94,7 @@ const ExperienceSection: React.FC = React.memo(() => {
         ))}
         
         {/* Footer message */}
-        <Box marginTop={2}>
+        <Box marginTop={2} justifyContent="center">
           <Text color="cyan" dimColor>
             🚀 8+ years of experience building scalable enterprise applications
           </Text>

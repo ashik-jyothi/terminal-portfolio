@@ -8,17 +8,17 @@ const ProjectsSection: React.FC = React.memo(() => {
 
   return (
     <Section title="Projects">
-      <Box flexDirection="column" gap={1}>
+      <Box flexDirection="column" gap={1} alignItems="center">
         {projects.map((project, index) => (
-          <Box key={project.name} flexDirection="column" marginBottom={3}>
+          <Box key={project.name} flexDirection="column" marginBottom={3} alignItems="center" width="100%">
             {/* Project Header */}
-            <Box flexDirection="column" marginBottom={1}>
+            <Box flexDirection="column" marginBottom={1} alignItems="center">
               <Box>
                 <Text color="green" bold>
                   🚀 {project.name}
                 </Text>
               </Box>
-              <Box marginTop={1} paddingLeft={2}>
+              <Box marginTop={1}>
                 <Text wrap="wrap">
                   {project.description}
                 </Text>
@@ -26,13 +26,13 @@ const ProjectsSection: React.FC = React.memo(() => {
             </Box>
 
             {/* Technologies */}
-            <Box flexDirection="column" marginBottom={1} paddingLeft={2}>
+            <Box flexDirection="column" marginBottom={1} alignItems="center">
               <Box marginBottom={1}>
                 <Text color="yellow" bold>
                   Technologies:
                 </Text>
               </Box>
-              <Box flexWrap="wrap" flexDirection="row">
+              <Box flexWrap="wrap" flexDirection="row" justifyContent="center">
                 {project.technologies.map((tech) => (
                   <Box key={tech} marginRight={2} marginBottom={1}>
                     <Text color="blue">
@@ -44,13 +44,13 @@ const ProjectsSection: React.FC = React.memo(() => {
             </Box>
 
             {/* Highlights */}
-            <Box flexDirection="column" marginBottom={1} paddingLeft={2}>
+            <Box flexDirection="column" marginBottom={1} alignItems="center">
               <Box marginBottom={1}>
                 <Text color="yellow" bold>
                   Key Features:
                 </Text>
               </Box>
-              <Box flexDirection="column">
+              <Box flexDirection="column" alignItems="center">
                 {project.highlights.map((highlight) => (
                   <Box key={highlight} marginBottom={1}>
                     <Text color="gray">
@@ -62,13 +62,13 @@ const ProjectsSection: React.FC = React.memo(() => {
             </Box>
 
             {/* Links */}
-            <Box flexDirection="column" paddingLeft={2}>
+            <Box flexDirection="column" alignItems="center">
               <Box marginBottom={1}>
                 <Text color="yellow" bold>
                   Links:
                 </Text>
               </Box>
-              <Box flexDirection="column">
+              <Box flexDirection="column" alignItems="center">
                 {project.githubUrl && (
                   <Box marginBottom={1}>
                     <Text color="cyan">
@@ -88,7 +88,7 @@ const ProjectsSection: React.FC = React.memo(() => {
 
             {/* Visual separation between projects */}
             {index < projects.length - 1 && (
-              <Box marginTop={2}>
+              <Box marginTop={2} justifyContent="center">
                 <Text color="gray" dimColor>
                   {'═'.repeat(50)}
                 </Text>
@@ -98,7 +98,7 @@ const ProjectsSection: React.FC = React.memo(() => {
         ))}
         
         {/* Footer message */}
-        <Box marginTop={2}>
+        <Box marginTop={2} justifyContent="center">
           <Text color="cyan" dimColor>
             🔗 Links are copyable from your terminal for easy access!
           </Text>
