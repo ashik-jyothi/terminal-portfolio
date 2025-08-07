@@ -43,9 +43,9 @@ Personal introduction, education, and certifications.
 
 ### 💼 Experience
 Detailed work history including:
-- **QBurst** - Lead Engineer (2022-Present)
-- **VIZRU** - Senior Software Engineer (2017-2022)
-- **Irisind** - Software Engineer (2017)
+- **[Company A]** - [Role A]
+- **[Company B]** - [Role B]
+- **[Company C]** - [Role C]
 
 ### 🛠️ Skills
 Technical expertise organized by categories:
